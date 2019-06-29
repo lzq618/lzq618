@@ -1,6 +1,6 @@
 {
   "name": "lzq618",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "blank",
   "main": "dist/lzq618.js",
   "scripts": {
@@ -17,8 +17,7 @@
     "compatible",
     "free",
     "business",
-    "functionlibrary",
-    "compatible",
+    "functionLibrary",
     "simple"
   ],
   "devDependencies": {

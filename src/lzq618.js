@@ -1,6 +1,6 @@
 /**
- * @copyright 卢振千 2019(lzq618js@gmail.com)
- * @version 0.0.4
+ * @copyright lzq 2019(lzq618js@gmail.com)
+ * @version 0.0.7
  */
 
 import "./core/style/index.css";

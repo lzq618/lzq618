@@ -9,7 +9,10 @@ use vanilla js and css compile,Committed to solving frequent business problems i
 
 ### Docs
 ---
+中文
 [1.x](https://www.kancloud.cn/lzq618/lzq618/)
+
+English writing
 
 ### Install
 
