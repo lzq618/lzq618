@@ -1,8 +1,19 @@
+import Reactive from "./Reactive";
+
 class DateTime {
   /**
    * @param {number|string} timestamp 10位或13位时间戳，不合规的参数会返回 undefined
    */
   constructor(timestamp = new Date().getTime()) {
+    const reactive = new Reactive();
+    reactive.defineReactive(
+      this,
+      "template",
+      "yyyy-MM-dd HH:mm:ss",
+      this.parse
+    );
+    reactive.defineReactive(this, "timestamp", timestamp, this.parse);
+    this.template = "yyyy-MM-dd HH:mm:ss";
     if (timestamp.toString().length === 10) {
       this.timestamp = `${timestamp}000`;
     } else if (timestamp.toString().length === 13) {
@@ -11,7 +22,37 @@ class DateTime {
       return;
     }
     this.template = "yyyy-MM-dd HH:mm:ss";
-    this.parse();
+  }
+  /**
+   * 改变时间
+   * @param {object} param0 配置对象
+   */
+  add({ year = 0, month = 0, day = 0, hours = 0, minutes = 0, seconds = 0 }) {
+    let currentYear = new Date(this.timestamp).getFullYear();
+    let currentMonth = new Date(this.timestamp).getMonth();
+    let currentDay = new Date(this.timestamp).getDate();
+    let currentHours = new Date(this.timestamp).getHours();
+    let currentMinutes = new Date(this.timestamp).getMinutes();
+    let currentSeconds = new Date(this.timestamp).getSeconds();
+
+    let newDate = new Date(
+      new Date(this.timestamp).setFullYear(currentYear + year)
+    ).getTime();
+    newDate = new Date(
+      new Date(newDate).setMonth(currentMonth + month)
+    ).getTime();
+    newDate = new Date(new Date(newDate).setDate(currentDay + day)).getTime();
+    newDate = new Date(
+      new Date(newDate).setHours(currentHours + hours)
+    ).getTime();
+    newDate = new Date(
+      new Date(newDate).setMinutes(currentMinutes + minutes)
+    ).getTime();
+    newDate = new Date(
+      new Date(newDate).setSeconds(currentSeconds + seconds)
+    ).getTime();
+    this.timestamp = newDate;
+    return this.now;
   }
   /**
    * @param {string} template 序列化格式 默认：yyyy-MM-dd HH:mm:ss
