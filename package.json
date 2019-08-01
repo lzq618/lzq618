@@ -1,12 +1,13 @@
 {
   "name": "lzq618",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "blank",
   "main": "dist/lzq618.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config build/webpack.config.js",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build",
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",

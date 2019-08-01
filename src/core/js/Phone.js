@@ -20,7 +20,9 @@ function extractPhone(text) {
 }
 
 /**
- * 判断字符串是否为合法手机号
+ * 检测字符串是否为合法手机号
+ * @param {string} text - 要检测的手机号
+ * @return {boolean} - 检测结果
  */
 function isPhone(text) {
   if (isString(text)) {
