@@ -5,12 +5,11 @@ export default class Reactive {
   /**
    * 数据劫持，响应式执行回调函数
    * @param {Object} data 劫持对象
-   * @param {string} key 属性
+   * @param {symbol|string|number} key 属性
    * @param {*} val 属性值
-   * @param {...Function} callBack 回调函数
+   * @param {Array<Function>} callBack 回调函数
    */
   defineReactive(data, key, val, ...callBack) {
-    console.log(callBack);
     this.callBackList.push(...callBack);
     Object.defineProperty(data, key, {
       configurable: true,
