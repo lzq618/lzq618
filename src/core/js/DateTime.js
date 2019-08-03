@@ -56,7 +56,7 @@ class DateTime {
       new Date(newDate).setSeconds(currentSeconds + seconds)
     ).getTime();
     this[timestamp] = newDate;
-    return this.now;
+    return this;
   }
   /**
    * @param {string} _template 序列化格式 默认：yyyy-MM-dd HH:mm:ss
