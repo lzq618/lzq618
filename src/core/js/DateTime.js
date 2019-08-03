@@ -29,7 +29,7 @@ class DateTime {
   }
   /**
    * 改变时间
-   * @param {object} param0 配置对象
+   * @param {object} options 配置对象
    */
   add({ year = 0, month = 0, day = 0, hours = 0, minutes = 0, seconds = 0 }) {
     let currentYear = new Date(this[timestamp]).getFullYear();
@@ -56,7 +56,7 @@ class DateTime {
       new Date(newDate).setSeconds(currentSeconds + seconds)
     ).getTime();
     this[timestamp] = newDate;
-    return this;
+    return this.now;
   }
   /**
    * @param {string} _template 序列化格式 默认：yyyy-MM-dd HH:mm:ss
